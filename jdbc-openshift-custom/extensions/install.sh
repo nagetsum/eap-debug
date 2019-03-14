@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "install.sh called"
+
 injected_dir=$1
 source /usr/local/s2i/install-common.sh
 install_deployments ${injected_dir}/jdbc.war
