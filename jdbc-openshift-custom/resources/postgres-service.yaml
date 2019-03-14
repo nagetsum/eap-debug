@@ -1,0 +1,8 @@
+# Service for external Database
+kind: Service
+apiVersion: v1
+metadata:
+ name: external-db
+spec:
+ type: ExternalName
+ externalName: postgres.openshift.example.com
