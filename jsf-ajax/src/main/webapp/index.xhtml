@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>test jsf ajax application</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+</h:head>
+
+<h:body>
+    <h:messages/>
+    <h:form>
+        <h:panelGrid columns="2">
+            Name:
+            <h:selectOneMenu id="prefecture" value="#{registerFormBean.selectedPrefCode}">
+                <f:selectItems value="${registerFormBean.prefs.list}" var="pref" itemValue="#{pref.code}"
+                               itemLabel="#{pref.name}">
+                </f:selectItems>
+                <f:ajax render="city" listener="#{registerFormBean.onChangePref}" event="change"/>
+                <f:passThroughAttribute name="autocomplete" value="off"/>
+            </h:selectOneMenu>
+
+            City:
+            <h:selectOneMenu id="city" value="#{registerFormBean.selectedCity}">
+                <f:selectItems var="cityName" value="#{registerFormBean.selectedPrefecture.cities}"
+                              itemValue="#{cityName}" itemLabel="#{cityName}">
+                </f:selectItems>
+                <f:passThroughAttribute name="autocomplete" value="off"/>
+            </h:selectOneMenu>
+
+            <h:commandButton action="#{registerFormBean.nextPage()}" value="submit"/>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
