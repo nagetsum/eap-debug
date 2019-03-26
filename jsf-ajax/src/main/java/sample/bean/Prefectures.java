@@ -1,11 +1,9 @@
 package sample.bean;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 import java.util.*;
 
 @ApplicationScoped
-@Named
 public class Prefectures {
     private final Map<String, Prefecture> list;
 
