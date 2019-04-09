@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:jboss:service:7.0 jboss-service_7_0.xsd"
+        xmlns="urn:jboss:service:7.0">
+    <mbean code="org.jboss.example.mbean.support.ConfigService" name="jboss.support:name=ConfigBean">
+    </mbean>
+</server>
