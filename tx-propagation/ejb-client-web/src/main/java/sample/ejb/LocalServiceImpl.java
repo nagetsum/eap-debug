@@ -1,13 +1,13 @@
 package sample.ejb;
 
 import javax.annotation.Resource;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Stateful
+@Stateless
 public class LocalServiceImpl implements LocalService {
 
     private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ public class LocalServiceImpl implements LocalService {
     @Resource(lookup = "java:jboss/PostgresXADS")
     private DataSource ds;
 
-    private int processCount = 0;
+    private static int processCount = 0;
 
     @Override
     public void debit(int fromAccountId, int amount) {

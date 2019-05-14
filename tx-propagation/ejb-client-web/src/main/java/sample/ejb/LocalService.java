@@ -1,9 +1,5 @@
 package sample.ejb;
 
-import javax.ejb.Remote;
-import java.io.Serializable;
-
-@Remote
-public interface LocalService extends Serializable {
+public interface LocalService {
     void debit(int fromAccountId, int amount);
 }

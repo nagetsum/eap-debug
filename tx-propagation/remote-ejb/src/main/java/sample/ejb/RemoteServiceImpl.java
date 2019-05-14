@@ -15,7 +15,7 @@ public class RemoteServiceImpl implements RemoteService {
     @Resource(lookup = "java:jboss/PostgresXADS")
     private DataSource ds;
 
-    private int processCount = 0;
+    private static int processCount = 0;
 
     @Override
     public void credit(int toAccounId, int amount) {
