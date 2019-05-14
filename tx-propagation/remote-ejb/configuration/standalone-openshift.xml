@@ -90,7 +90,7 @@
         <subsystem xmlns="urn:jboss:domain:logging:3.0">
             <console-handler name="CONSOLE">
                 <formatter>
-                    <named-formatter name="COLOR-PATTERN"/>
+                    <named-formatter name="PATTERN"/>
                 </formatter>
             </console-handler>
             <logger category="com.arjuna">
@@ -101,6 +101,12 @@
             </logger>
             <logger category="sun.rmi">
                 <level name="WARN"/>
+            </logger>
+            <logger category="org.jboss.remoting">
+                <level name="TRACE"/>
+            </logger>
+            <logger category="org.jboss.as.ejb3">
+                <level name="TRACE"/>
             </logger>
             <root-logger>
                 <level name="INFO"/>
@@ -114,6 +120,9 @@
                         <property name="metaData" value="log-handler=CONSOLE"/>
                     </properties>
                 </custom-formatter>
+            </formatter>
+            <formatter name="PATTERN">
+                <pattern-formatter pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
             </formatter>
             <formatter name="COLOR-PATTERN">
                 <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
@@ -430,6 +439,14 @@
             </deployment-permissions>
         </subsystem>
         <subsystem xmlns="urn:wildfly:elytron:1.2" final-providers="combined-providers" disallowed-providers="OracleUcrypto">
+            <authentication-client>
+                <authentication-configuration name="ejb-auth" authentication-name="test">
+                    <credential-reference clear-text="test@123"/>
+                </authentication-configuration>
+                <authentication-context name="default">
+                    <match-rule authentication-configuration="ejb-auth"/>
+                </authentication-context>
+            </authentication-client>
             <providers>
                 <provider-loader name="elytron" module="org.wildfly.security.elytron"/>
                 <provider-loader name="openssl" module="org.wildfly.openssl"/>
