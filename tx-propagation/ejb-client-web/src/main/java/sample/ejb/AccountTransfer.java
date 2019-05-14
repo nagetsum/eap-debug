@@ -18,22 +18,19 @@ public class AccountTransfer {
     // remote SLSB
     private RemoteService remote;
 
-    @PostConstruct
-    void init() {
+    // transaction propagation with XADataSource
+    public void transfer(int fromId, int toId, int amount) {
+        local.debit(fromId, amount);
+
         Hashtable<String, String> jndiProps = new Hashtable<>();
         jndiProps.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
 
         try {
             Context context = new InitialContext(jndiProps);
-            this.remote = (RemoteService) context.lookup("ejb:/remote-ejb/RemoteServiceImpl!sample.ejb.RemoteService");
+            RemoteService remote = (RemoteService) context.lookup("ejb:/remote-ejb/RemoteServiceImpl!sample.ejb.RemoteService");
+            remote.credit(toId, amount);
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    // transaction propagation with XADataSource
-    public void transfer(int fromId, int toId, int amount) {
-        local.debit(fromId, amount);
-        remote.credit(toId, amount);
     }
 }
