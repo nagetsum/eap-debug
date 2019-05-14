@@ -15,7 +15,7 @@ public class AccountTransfer {
     @EJB
     private LocalService local;
 
-    // remote SFSB
+    // remote SLSB
     private RemoteService remote;
 
     @PostConstruct
@@ -25,7 +25,7 @@ public class AccountTransfer {
 
         try {
             Context context = new InitialContext(jndiProps);
-            this.remote = (RemoteService) context.lookup("ejb:/remote-ejb/RemoteServiceImpl!sample.ejb.RemoteService?stateful");
+            this.remote = (RemoteService) context.lookup("ejb:/remote-ejb/RemoteServiceImpl!sample.ejb.RemoteService");
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }

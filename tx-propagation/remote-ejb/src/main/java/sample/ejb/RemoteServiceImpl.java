@@ -1,13 +1,13 @@
 package sample.ejb;
 
 import javax.annotation.Resource;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Stateful
+@Stateless
 public class RemoteServiceImpl implements RemoteService {
 
     private static final long serialVersionUID = 1L;
@@ -31,7 +31,7 @@ public class RemoteServiceImpl implements RemoteService {
 
         processCount++;
         System.out.println("sample.ejb.RemoteServiceImpl processCount : " + processCount);
-        sleep(90000);
+        sleep(1000);
     }
 
     private void sleep(long millisec) {
