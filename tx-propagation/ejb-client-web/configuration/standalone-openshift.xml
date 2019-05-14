@@ -424,6 +424,8 @@
                     <properties>
                         <property name="SASL_POLICY_NOANONYMOUS" value="false"/>
                         <property name="SSL_ENABLED" value="false"/>
+                        <property name="org.jboss.remoting3.RemotingOptions.HEARTBEAT_INTERVAL" value="30000"/>
+                        <property name="READ_TIMEOUT" value="60000"/>
                     </properties>
                 </remote-outbound-connection>
             </outbound-connections>
