@@ -4,6 +4,7 @@
         <ejb-receivers>
             <remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection"/>
         </ejb-receivers>
+        <!--
         <clusters>
             <cluster name="ejb" security-realm="ejb-security-realm" username="test">
                 <connection-creation-options>
@@ -12,5 +13,6 @@
                 </connection-creation-options>
             </cluster>
         </clusters>
+        -->
     </client-context>
 </jboss-ejb-client>
