@@ -1,13 +1,13 @@
 package sample.ejb;
 
 import javax.annotation.Resource;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Stateless
+@Stateful
 public class RemoteServiceImpl implements RemoteService {
 
     private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ public class RemoteServiceImpl implements RemoteService {
     @Resource(lookup = "java:jboss/PostgresXADS")
     private DataSource ds;
 
-    private static int processCount = 0;
+    private int processCount = 0;
 
     @Override
     public void credit(int toAccounId, int amount) {
