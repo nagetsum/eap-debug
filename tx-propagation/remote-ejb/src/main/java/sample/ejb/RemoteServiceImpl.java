@@ -30,7 +30,7 @@ public class RemoteServiceImpl implements RemoteService {
         }
 
         processCount++;
-        System.out.println("sample.ejb.RemoteServiceImpl processCount : " + processCount);
+        System.out.println("sample.ejb.RemoteServiceImpl processCount : " + processCount + ", host: " + System.getenv("HOSTNAME"));
         sleep(1000);
     }
 
