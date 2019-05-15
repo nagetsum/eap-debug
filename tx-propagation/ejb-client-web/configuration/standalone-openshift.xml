@@ -432,7 +432,7 @@
             <endpoint/>
             <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
             <outbound-connections>
-                <remote-outbound-connection name="remote-ejb-connection" outbound-socket-binding-ref="remote-ejb" authentication-context="ejb-auth-context">
+                <remote-outbound-connection name="remote-ejb-connection" outbound-socket-binding-ref="remote-ejb" security-realm="ejb-security-realm">
                     <properties>
                         <property name="SASL_POLICY_NOANONYMOUS" value="false"/>
                         <property name="SSL_ENABLED" value="false"/>
@@ -457,12 +457,12 @@
                 </maximum-set>
             </deployment-permissions>
         </subsystem>
-        <subsystem xmlns="urn:wildfly:elytron:1.2" final-providers="combined-providers" disallowed-providers="OracleUcrypto">
+        <subsystem xmlns="urn:wildfly:elytron:1.2" default-authentication-context="default" final-providers="combined-providers" disallowed-providers="OracleUcrypto">
             <authentication-client>
                 <authentication-configuration name="ejb-auth-config" authentication-name="test">
                     <credential-reference clear-text="test@123"/>
                 </authentication-configuration>
-                <authentication-context name="ejb-auth-context">
+                <authentication-context name="default">
                     <match-rule authentication-configuration="ejb-auth-config"/>
                 </authentication-context>
             </authentication-client>
