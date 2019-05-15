@@ -12,8 +12,8 @@ import java.util.Properties;
 public class AccountTransfer {
 
     // local SFSB
-//    @EJB
-//    private LocalService local;
+    @EJB
+    private LocalService local;
 
     // remote SLSB
     private RemoteService remote;
@@ -33,7 +33,7 @@ public class AccountTransfer {
 
     // transaction propagation with XADataSource
     public void transfer(int fromId, int toId, int amount) {
-//        local.debit(fromId, amount);
+        local.debit(fromId, amount);
         remote.credit(toId, amount);
     }
 }
