@@ -6,7 +6,7 @@ import javax.ejb.Singleton;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import java.util.Hashtable;
+import java.util.Properties;
 
 @Singleton
 public class AccountTransfer {
@@ -20,11 +20,11 @@ public class AccountTransfer {
 
     @PostConstruct
     public void init() {
-        Hashtable<String, String> jndiProps = new Hashtable<>();
-        jndiProps.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+        Properties properties = new Properties();  
+        properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory"); 
 
         try {
-            Context context = new InitialContext(jndiProps);
+            Context context = new InitialContext(properties);
             this.remote = (RemoteService) context.lookup("ejb:/remote-ejb/RemoteServiceImpl!sample.ejb.RemoteService?stateful");
         } catch (NamingException e) {
             throw new RuntimeException(e);
