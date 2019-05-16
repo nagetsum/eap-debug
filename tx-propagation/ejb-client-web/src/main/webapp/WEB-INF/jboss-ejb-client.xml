@@ -5,10 +5,11 @@
 -->
     <client-context>
         <ejb-receivers>
-            <remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection" connect-timeout="10000"/>
-            <channel-creation-options>
-                <property name="org.xnio.Options.READ_TIMEOUT" value="10000"/>
-            </channel-creation-options>
+            <remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection" connect-timeout="10000">
+                <channel-creation-options>
+                    <property name="org.xnio.Options.READ_TIMEOUT" value="10000"/>
+                </channel-creation-options>
+            </remoting-ejb-receiver>
         </ejb-receivers>
         <!--
         <clusters>
