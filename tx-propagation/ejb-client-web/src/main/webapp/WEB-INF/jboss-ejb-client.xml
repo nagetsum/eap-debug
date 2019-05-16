@@ -2,13 +2,8 @@
 <jboss-ejb-client xmlns:xsi="urn:jboss:ejb-client:1.2" xsi:noNamespaceSchemaLocation="jboss-ejb-client_1_2.xsd">
     <client-context invocation-timeout="10000">
         <ejb-receivers>
-            <remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection" connect-timeout="10000">
-                <connection-creation-options>
-                    <property name="org.xnio.Options.READ_TIMEOUT" value="10000"/>
-                </connection-creation-options>
-            </remoting-ejb-receiver>
+            <remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection" connect-timeout="10000"/>
         </ejb-receivers>
-<!--
         <clusters>
             <cluster name="ejb" security-realm="ejb-security-realm" username="test">
                 <connection-creation-options>
@@ -17,6 +12,5 @@
                 </connection-creation-options>
             </cluster>
         </clusters>
--->
     </client-context>
 </jboss-ejb-client>
