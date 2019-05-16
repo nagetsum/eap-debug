@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-ejb-client xmlns:xsi="urn:jboss:ejb-client:1.2" xsi:noNamespaceSchemaLocation="jboss-ejb-client_1_2.xsd">
+<!--
     <client-context invocation-timeout="10000">
+-->
+    <client-context>
         <ejb-receivers>
             <remoting-ejb-receiver outbound-connection-ref="remote-ejb-connection" connect-timeout="10000"/>
         </ejb-receivers>
+        <!--
         <clusters>
             <cluster name="ejb" security-realm="ejb-security-realm" username="test">
                 <connection-creation-options>
@@ -12,5 +16,6 @@
                 </connection-creation-options>
             </cluster>
         </clusters>
+        -->
     </client-context>
 </jboss-ejb-client>
