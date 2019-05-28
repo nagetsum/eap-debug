@@ -11,6 +11,7 @@ import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 @Singleton
@@ -32,13 +33,15 @@ public class InventoryManager {
     }
 
     public void search(int times) {
+        final AtomicInteger idx = new AtomicInteger();
         for (int i = 0; i < times; i++) {
             executor.submit(() -> {
                 Session session = em.unwrap(Session.class);
-                List<Stock> stocks = session.createQuery("from Stock s where s.stockName = :name")
-                        .setParameter("name", "name 1")
-                        .list();
-                System.out.println("Stock found : " + stocks.size() + " records.");
+//                List<Stock> stocks = session.createQuery("from Stock s where s.stockName = :name")
+//                        .setParameter("name", "name 1")
+//                        .list();
+                session.createSQLQuery("SELECT " + idx.incrementAndGet()).uniqueResult();
+                System.out.println("SELECT " + idx.get() + " done.");
             });
         }
     }
