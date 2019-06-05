@@ -15,4 +15,25 @@
             <value/>
         </managed-property>
     </managed-bean>
+    <managed-bean>
+        <description>PlanetsMoons Bean</description>
+        <managed-bean-name>planetsMoons</managed-bean-name>
+        <managed-bean-class>demo.PlanetsMoons</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>currentPlanet</property-name>
+            <property-class>java.lang.String</property-class>
+            <value/>
+        </managed-property>
+        <managed-property>
+            <property-name>planetsList</property-name>
+            <property-class>java.util.List</property-class>
+            <list-entries/>
+        </managed-property>
+        <managed-property>
+            <property-name>moonsList</property-name>
+            <property-class>java.util.List</property-class>
+            <list-entries/>
+        </managed-property>
+    </managed-bean>
 </faces-config>
