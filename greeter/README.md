@@ -11,4 +11,6 @@ Tested on
 Application root URL:
 ```
 http://localhost:8080/greeter/index.jsf
+or
+http://localhost:8080/greeter/planet.jsf
 ```
