@@ -13,6 +13,5 @@ public class EchoServlet extends HttpServlet {
             throws IOException {
         res.setContentType("text/plain; charset=utf-8");
         res.getWriter().write("echo");
-        System.out.println(System.getProperty("file.encoding"));
     }
 }
