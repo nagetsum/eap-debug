@@ -19,7 +19,6 @@ public class SessionServlet extends HttpServlet {
 
         res.setContentType("text/plain; charset=utf-8");
         res.getWriter().println("stress done, id " + session.getId());
-        System.out.println("stress done, id " + session.getId());
     }
 
     private void stress(HttpSession session, int strength) {

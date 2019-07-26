@@ -12,6 +12,5 @@ public class InvalidateServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res)
         throws IOException {
         req.getSession().invalidate();
-        System.out.println("HttpSession invalidated");
     }
 }
