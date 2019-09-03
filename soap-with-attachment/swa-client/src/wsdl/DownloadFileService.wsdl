@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://endpoint.swa.ws.sample/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DownloadFileService" targetNamespace="http://endpoint.swa.ws.sample/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://endpoint.swa.ws.sample/" elementFormDefault="unqualified" targetNamespace="http://endpoint.swa.ws.sample/" version="1.0">
+
+  <xs:element name="download" type="tns:download"/>
+
+  <xs:element name="downloadResponse" type="tns:downloadResponse"/>
+
+  <xs:complexType name="download">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="downloadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:attachmentFile"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="attachmentFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fileName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="download">
+    <wsdl:part element="tns:download" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadResponse">
+    <wsdl:part element="tns:downloadResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DownloadFile">
+    <wsdl:operation name="download">
+      <wsdl:input message="tns:download" name="download">
+    </wsdl:input>
+      <wsdl:output message="tns:downloadResponse" name="downloadResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DownloadFileServiceSoapBinding" type="tns:DownloadFile">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="download">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="download">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="downloadResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DownloadFileService">
+    <wsdl:port binding="tns:DownloadFileServiceSoapBinding" name="DownloadFilePort">
+      <soap:address location="http://localhost:8080/swa-server/DownloadFile"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
