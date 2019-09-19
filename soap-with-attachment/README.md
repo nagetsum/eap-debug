@@ -7,22 +7,24 @@ HTTP/1.1 200 OK
 Connection: keep-alive
 X-Powered-By: Undertow/1
 Server: JBoss-EAP/7
-Content-Type: multipart/related; type="text/xml"; boundary="uuid:6a76961d-1be3-4f69-8535-4551272e1497"; start="<root.message@cxf.apache.org>"; start-info="text/xml"
-Content-Length: 627
-Date: Tue, 03 Sep 2019 03:56:29 GMT
+Transfer-Encoding: chunked
+Content-Type: multipart/related; type="text/xml"; boundary="uuid:bd5bbad9-7f85-42d9-a294-809be1568692"; start="<root.message@cxf.apache.org>"; start-info="text/xml"
+Date: Thu, 19 Sep 2019 12:03:11 GMT
 
---uuid:6a76961d-1be3-4f69-8535-4551272e1497
+4000
+--uuid:bd5bbad9-7f85-42d9-a294-809be1568692
 Content-Type: text/xml; charset=UTF-8
 Content-Transfer-Encoding: binary
 Content-ID: <root.message@cxf.apache.org>
 
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns2:downloadResponse xmlns:ns2="http://endpoint.swa.ws.sample/"><return><fileName>helloworld.txt</fileName></return></ns2:downloadResponse></soap:Body></soap:Envelope>
---uuid:6a76961d-1be3-4f69-8535-4551272e1497
-Content-Type: plain/text
-Content-Transfer-Encoding: binary
-Content-ID: <root.message@cxf.apache.org>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns2:downloadResponse xmlns:ns2="http://endpoint.swa.ws.sample/"><return><fileName>helloworld.pdf</fileName></return></ns2:downloadResponse></soap:Body></soap:Envelope>
+--uuid:bd5bbad9-7f85-42d9-a294-809be1568692
+Content-Type: application/pdf
+Content-Transfer-Encoding: base64
+Content-ID: <http://localhost:8080/swa-server/helloworld.pdf>
 
-Hello, world!
-
---uuid:6a76961d-1be3-4f69-8535-4551272e1497--
+JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBvYmoKPDwvTGVuZ3RoIDMgMCBSL0ZpbHRlci9GbGF0ZURlY29kZT4+CnN0cmVhbQp4nI1TTYvbQAy9z6+Y80K8o/myB8yAHTvQ3hYMPZSe2m5LSVp2L/37fdKMEydNl2IykTV60tOTbBrSv9WLNnpnGqvb5JqoQwqwX7+qDw/6pyLNz+s3ZfhCnxQHtWIfdbEFe1yTsFFuv6vnh7dhboW5W9hLDTJ4yMXG879tEfj5pB7fnbyefuknoc4P+I2LcsbpCNDyRT8eQNvq5fljbyjvbG9s3lFvXIbp8y70JmQcUbxtdXXsShzSCSZdon12OIfsTG9Gdo/
+.... (omitted)
+--uuid:bd5bbad9-7f85-42d9-a294-809be1568692--
+0
 ```
