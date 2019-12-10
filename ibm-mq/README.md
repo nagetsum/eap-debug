@@ -1,6 +1,6 @@
-= How to setup the integration of EAP7.2 and IBM MQ 9.1.z
+# How to setup the integration of EAP7.2 and IBM MQ 9.1.z
 
-= Setup IBM MQ9.1.z on Docker
+## Setup IBM MQ9.1.z on Docker
 
 ```
 # yum install docker-ce docker-ce-cli containerd.io
@@ -12,7 +12,7 @@
 # docker run --name ibm-mq -e LICENSE=accept -e MQ_QMGR_NAME=QM1 -p 1414:1414 -p 9443:9443 ibmcom/mq:9.1.3.0-r3
 ```
 
-= Setup EAP resoruce adaptor subsystem
+## Setup EAP resoruce adaptor subsystem
 1. Get `wmq.jmsra.rar` from the container that is the resource adaptor implementation for IBM MQIBM MQ9.1.
 
 ```
@@ -73,7 +73,7 @@ id: admin
 pass: passw0rd
 ```
 
-= How to configure a Queue for IBM MQ
+## How to configure a Queue for IBM MQ
 Some of queue are already created by default on IBM MQ for Docker, but if you want to add a queue for IBM MQ, you can create by `runmqsc` command.
 
 ```
@@ -86,12 +86,12 @@ define qlocal('lq01')
     11 : define qlocal('lq01')
 AMQ8006I: IBM MQ queue created.
 
-# Confirm local queue ` lq01`
+# Confirm local queue `lq01`
 display qlocal('lq01')
     17 : display qlocal('lq01')
 ```
 
-= References
+## References
 Using the IBM MQ resource adapter
 https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.dev.doc/q031610_.htm
 
