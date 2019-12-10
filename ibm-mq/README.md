@@ -13,13 +13,13 @@
 ```
 
 ## Setup EAP resoruce adaptor subsystem
-1. Get `wmq.jmsra.rar` from the container that is the resource adaptor implementation for IBM MQIBM MQ9.1.
+1. Get `wmq.jmsra.rar` from the container that is the resource adaptor implementation for IBM MQ.
 
 ```
 # docker cp ibm-mq:/opt/mqm/java/lib/jca/wmq.jmsra.rar .
 ```
 
-2. Deploy wmq.jmsra.rar to EAP
+2. Deploy `wmq.jmsra.rar` to EAP
 
 ```
 $ cp wmq.jmsra.rar $JBOSS_HOME/standalone/deployments/
