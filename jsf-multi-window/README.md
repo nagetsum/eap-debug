@@ -1,4 +1,4 @@
-= JSF multi-window issue reproducer
+# JSF multi-window issue reproducer
 
 ```
 javax.servlet.ServletException: viewId:/index.xhtml - ビュー /index.xhtml を復元できませんでした。
