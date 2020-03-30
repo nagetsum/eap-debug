@@ -477,6 +477,9 @@
                 <smtp-server outbound-socket-binding-ref="mail-smtp"/>
             </mail-session>
         </subsystem>
+        <subsystem xmlns="urn:jboss:domain:messaging-activemq:4.0">
+            <!-- ##MESSAGING_SUBSYSTEM_CONFIG## -->
+        </subsystem>
         <subsystem xmlns="urn:wildfly:microprofile-config-smallrye:1.0">
             <!-- ##MICROPROFILE_CONFIG_SOURCE## -->
         </subsystem>
