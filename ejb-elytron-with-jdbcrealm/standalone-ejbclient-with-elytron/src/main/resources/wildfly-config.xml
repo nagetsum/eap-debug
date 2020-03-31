@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <authentication-client xmlns="urn:elytron:client:1.2">
+        <authentication-rules>
+            <rule use-configuration="default"/>
+        </authentication-rules>
+        <authentication-configurations>
+            <configuration name="default">
+                <set-user-name name="admin"/>
+                <credentials>
+                    <clear-password password="password123!"/>
+                </credentials>
+                <sasl-mechanism-selector selector="DIGEST-MD5"/>
+            </configuration>
+        </authentication-configurations>
+    </authentication-client>
+</configuration>
