@@ -239,9 +239,6 @@
                 </thread-pool>
             </thread-pools>
             <default-security-domain value="other"/>
-            <application-security-domains>
-                <application-security-domain name="MyAppSecurity" security-domain="MyAppDomain"/>
-            </application-security-domains>
             <default-missing-method-permissions-deny-access value="true"/>
             <log-system-exceptions value="true"/>
         </subsystem>
