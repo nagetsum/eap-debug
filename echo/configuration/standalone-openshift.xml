@@ -165,7 +165,7 @@
                         <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
                     </driver>
                     -->
-                    <driver name="postgresql" module="org.postgresql-custom">
+                    <driver name="postgresql" module="org.postgresql.custom">
                         <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
                     <!-- ##DRIVERS## -->
