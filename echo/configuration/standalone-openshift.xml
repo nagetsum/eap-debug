@@ -147,6 +147,12 @@
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
                     </driver>
+                    <driver name="mysql" module="com.mysql">
+                        <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="postgresql" module="org.postgresql">
+                        <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+                    </driver>
                     <!-- ##DRIVERS## -->
                 </drivers>
             </datasources>
@@ -172,7 +178,7 @@
                 </managed-scheduled-executor-services>
             </concurrent>
             <default-bindings context-service="java:jboss/ee/concurrency/context/default"
-                              datasource="##DEFAULT_DATASOURCE##"
+                              datasource="java:jboss/datasources/ExampleDS"
                               jms-connection-factory="##DEFAULT_JMS##"
                               managed-executor-service="java:jboss/ee/concurrency/executor/default"
                               managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default"
