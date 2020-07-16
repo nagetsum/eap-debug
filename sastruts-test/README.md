@@ -1,4 +1,4 @@
-= Test S2JDBC app for EAP 7
+# Test S2JDBC app for EAP 7
 
 Create scaffold project:
 ```
