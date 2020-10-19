@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>eap5-hibernate</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>eap5-hibernate-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>eap5-hibernate - ear</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>eap5-hibernate-web</artifactId>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>eap5-hibernate-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.ear.plugin}</version>
+                <configuration>
+                    <version>5</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                    <!--
+                    <webModule>
+                        <groupId>org.example</groupId>
+                        <artifactId>eap5-hibernate-web</artifactId>
+                        <contextRoot>/eap5-hibernate</contextRoot>
+                    </webModule>
+                    -->
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
