@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="https://docs.jboss.org/ironjacamar/schema/datasources_1_1.xsd">
+    <datasource jndi-name="java:jboss/datasources/PostgresDS" pool-name="PostgresDS">
+        <connection-url>jdbc:postgresql://127.0.0.1:5432/test</connection-url>
+        <!--
+          driver name format: <war-file-name>_<driver-module-name>
+          The driver name will be displayed as below when deploying the war containing JDBC jar.
+          WFLYJCA0018: Started Driver service with driver-name = quickstart-ds.war_org.postgresql.Driver_42_2
+        -->
+        <driver>quickstart-ds.war_org.postgresql.Driver_42_2</driver>
+        <pool>
+            <min-pool-size>10</min-pool-size>
+            <max-pool-size>10</max-pool-size>
+            <prefill>true</prefill>
+        </pool>
+        <security>
+            <user-name>postgres</user-name>
+            <password>postgres</password>
+        </security>
+        <validation>
+            <validate-on-match>true</validate-on-match>
+            <!-- for PostgreSQL -->
+            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"/>
+            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"/>
+
+            <!-- for MySQL -->
+            <!--
+            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+            -->
+        </validation>
+    </datasource>
+</datasources>
