@@ -26,7 +26,12 @@ public class UploadController {
             String fileName = file.getOriginalFilename();
             long size = file.getSize();
             file.transferTo(Paths.get("/home/test/store/" + fileName).toFile());
-//            Files.copy(file.getInputStream(), Paths.get("/home/test/store/" + fileName));
+
+            // As a workaround for UNDERTOW-1474 file descriptor leak
+            // https://issues.redhat.com/browse/UNDERTOW-1474
+//            try (InputStream in = file.getInputStream()) {
+//                Files.copy(in, Paths.get("/home/test/store/" + fileName));
+//            }
             redirectAttributes.addFlashAttribute("filename", fileName);
             redirectAttributes.addFlashAttribute("size", size);
             return "redirect:/success";
