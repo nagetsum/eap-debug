@@ -38,7 +38,7 @@ public class SoapClientServlet extends HttpServlet {
 //        res.getWriter().println("result: " + result);
 
         try {
-            // Option2(advanced). using javax.xml.ws.Dispatch interface
+            // Option2(advanced). using javax.xml.ws.Dispatch interface with Service.Mode.PAYLOAD
             sendRequest(res.getWriter());
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,4 +67,60 @@ public class SoapClientServlet extends HttpServlet {
         JAXBElement<UploadFileResponse> response = (JAXBElement<UploadFileResponse>) dispatch.invoke(request);
         out.println("result:" + response.getValue().getReturn());
     }
+
+      // Option3(advanced). Case Service.Mode.MESSAGE which is the SOAP message with a attachment built by the application.
+//    private void sendRequest(PrintWriter out) throws Exception {
+//        URL wsdlUrl = new URL("http://127.0.0.1:8080/mtom-server/FileReceiverService?wsdl");
+//        QName serviceName = new QName("http://server.soap.example.org/", "FileReceiverServiceService");
+//        QName portName = new QName("http://server.soap.example.org/", "FileReceiverServicePort");
+//
+//        Service service = Service.create(wsdlUrl, serviceName);
+//        Dispatch<SOAPMessage> dispatch = service.createDispatch(portName, SOAPMessage.class, Service.Mode.MESSAGE, new MTOMFeature(0));
+//        SOAPMessage requestMessage = createMessage();
+//        requestMessage.writeTo(System.out);
+//        SOAPMessage responseMessage =  dispatch.invoke(requestMessage);
+//        out.println("result:" + responseMessage.toString());
+//    }
+//
+      // Continuation of Option 3: the SOAP Body is built by JAXB marchalling.
+//    private SOAPMessage createMessage() throws SOAPException, JAXBException, ParserConfigurationException {
+//        SOAPMessage soapMessage = MessageFactory.newInstance().createMessage();
+//        soapMessage.getSOAPPart().getEnvelope();
+//        AttachmentPart attachment = soapMessage.createAttachmentPart(new DataHandler(new FileDataSource(FILEPATH_TO_SEND)));
+//        String contentId = "myattachment1";
+//        attachment.setContentId(contentId);
+//
+//        JAXBContext jbc = JAXBContext.newInstance("org.example.soap.server");
+//        Marshaller marshaller = jbc.createMarshaller();
+//
+//        UploadFile uploadFile = new UploadFile();
+//        uploadFile.setArg0(new DataHandler(new FileDataSource(FILEPATH_TO_SEND)));
+//        uploadFile.setArg1("duke.png");
+//        marshaller.marshal(uploadFile, soapMessage.getSOAPBody());
+//        return soapMessage;
+//    }
+
+//    // Continuation of Option 3 - other option: the SOAP Body is built by javax.xml.soap.* SAAJ(the SOAP with Attachment API for Java) APIs.
+//    private SOAPMessage createMessage() throws SOAPException {
+//        SOAPMessage soapMessage = MessageFactory.newInstance().createMessage();
+//        soapMessage.getSOAPPart().getEnvelope();
+//
+//        AttachmentPart attachment = soapMessage.createAttachmentPart(new DataHandler(new FileDataSource(FILEPATH_TO_SEND)));
+//        String contentId = "myattachment1";
+//        attachment.setContentId(contentId);
+//
+//        SOAPBody soapBody = soapMessage.getSOAPBody();
+//        SOAPBodyElement soapBodyRoot = soapBody.addBodyElement(new QName("http://server.soap.example.org/", "uploadFile", "ns"));
+//
+//        SOAPElement arg0 = soapBodyRoot.addChildElement("arg0");
+//        SOAPElement include = arg0.addChildElement(new QName("http://www.w3.org/2004/08/xop/include", "Include","xop"));
+//        include.addAttribute(new QName("href"),"cid:" + contentId);
+//
+//        SOAPElement arg1 = soapBodyRoot.addChildElement("arg1");
+//        arg1.addTextNode("duke.png");
+//
+//        soapMessage.addAttachmentPart(attachment);
+//        return soapMessage;
+//    }
+
 }
