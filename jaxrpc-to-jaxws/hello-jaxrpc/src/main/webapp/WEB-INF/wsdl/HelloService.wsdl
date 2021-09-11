@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='HelloService' targetNamespace='http://hello.ws.jboss.org/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://hello.ws.jboss.org/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://hello.ws.jboss.org/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types/>
+ <message name='Hello_hello'>
+  <part name='String_1' type='xsd:string'/>
+ </message>
+ <message name='Hello_helloResponse'>
+  <part name='result' type='xsd:string'/>
+ </message>
+ <portType name='Hello'>
+  <operation name='hello' parameterOrder='String_1'>
+   <input message='tns:Hello_hello'/>
+   <output message='tns:Hello_helloResponse'/>
+  </operation>
+ </portType>
+ <binding name='HelloBinding' type='tns:Hello'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='hello'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://hello.ws.jboss.org/' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://hello.ws.jboss.org/' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='HelloService'>
+  <port binding='tns:HelloBinding' name='HelloPort'>
+   <soap:address location='http://127.0.0.1:8080/hello-jaxrpc/Hello'/>
+  </port>
+ </service>
+</definitions>
