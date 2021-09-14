@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='BookFinder' targetNamespace='http://bookfinder.ws.jboss.org/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://bookfinder.ws.jboss.org/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://bookfinder.ws.jboss.org/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://bookfinder.ws.jboss.org/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://bookfinder.ws.jboss.org/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <complexType name='Book'>
+    <sequence>
+     <element name='author' nillable='true' type='string'/>
+     <element name='isbn13' nillable='true' type='string'/>
+     <element name='title' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='SearchCriteria'>
+    <sequence>
+     <element name='author' nillable='true' type='string'/>
+     <element name='publisher' nillable='true' type='string'/>
+     <element name='title' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='SearchResult'>
+    <sequence>
+     <element name='originalCriteria' nillable='true' type='tns:SearchCriteria'/>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' nillable='true' type='tns:Book'/>
+    </sequence>
+   </complexType>
+  </schema>
+ </types>
+ <message name='BookFinder_search' xmlns='http://schemas.xmlsoap.org/wsdl/'>
+  <part name='SearchCriteria_1' type='ns1:SearchCriteria'/>
+ </message>
+ <message name='BookFinder_searchResponse'>
+  <part name='result' type='ns1:SearchResult'/>
+ </message>
+ <portType name='BookFinder'>
+  <operation name='search' parameterOrder='SearchCriteria_1'>
+   <input message='tns:BookFinder_search'/>
+   <output message='tns:BookFinder_searchResponse'/>
+  </operation>
+ </portType>
+ <binding name='BookFinderBinding' type='tns:BookFinder'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='search'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://bookfinder.ws.jboss.org/' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://bookfinder.ws.jboss.org/' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='BookFinder'>
+  <port binding='tns:BookFinderBinding' name='BookFinderPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

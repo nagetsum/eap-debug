@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.jboss.org/jbossws-tools">
+    <java-wsdl>
+        <service name="BookFinder"
+                 style="rpc"
+                 endpoint="org.jboss.ws.booksearch.BookFinder"/>
+        <namespaces target-namespace="http://bookfinder.ws.jboss.org/"
+                    type-namespace="http://bookfinder.ws.jboss.org/types"/>
+        <mapping file="jaxrpc-mapping-bookfinder.xml"/>
+        <webservices servlet-link="BookFinderWS"/>
+    </java-wsdl>
+</configuration>

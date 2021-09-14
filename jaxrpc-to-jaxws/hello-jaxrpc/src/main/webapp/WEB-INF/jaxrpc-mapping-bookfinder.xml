@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><java-wsdl-mapping version='1.1' xmlns='http://java.sun.com/xml/ns/j2ee' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd'>
+ <package-mapping>
+  <package-type>org.jboss.ws.booksearch</package-type>
+  <namespaceURI>http://bookfinder.ws.jboss.org/types</namespaceURI>
+ </package-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.ws.booksearch.SearchCriteria</java-type>
+  <root-type-qname xmlns:typeNS='http://bookfinder.ws.jboss.org/types'>typeNS:SearchCriteria</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>author</java-variable-name>
+   <xml-element-name>author</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>publisher</java-variable-name>
+   <xml-element-name>publisher</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>title</java-variable-name>
+   <xml-element-name>title</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.ws.booksearch.Book</java-type>
+  <root-type-qname xmlns:typeNS='http://bookfinder.ws.jboss.org/types'>typeNS:Book</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>author</java-variable-name>
+   <xml-element-name>author</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>isbn13</java-variable-name>
+   <xml-element-name>isbn13</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>title</java-variable-name>
+   <xml-element-name>title</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.ws.booksearch.SearchResult</java-type>
+  <root-type-qname xmlns:typeNS='http://bookfinder.ws.jboss.org/types'>typeNS:SearchResult</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>originalCriteria</java-variable-name>
+   <xml-element-name>originalCriteria</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <service-interface-mapping>
+  <service-interface>org.jboss.ws.booksearch.BookFinder</service-interface>
+  <wsdl-service-name xmlns:serviceNS='http://bookfinder.ws.jboss.org/'>serviceNS:BookFinder</wsdl-service-name>
+  <port-mapping>
+   <port-name>BookFinderPort</port-name>
+   <java-port-name>BookFinderPort</java-port-name>
+  </port-mapping>
+ </service-interface-mapping>
+ <service-endpoint-interface-mapping>
+  <service-endpoint-interface>org.jboss.ws.booksearch.BookFinder</service-endpoint-interface>
+  <wsdl-port-type xmlns:portTypeNS='http://bookfinder.ws.jboss.org/'>portTypeNS:BookFinder</wsdl-port-type>
+  <wsdl-binding xmlns:bindingNS='http://bookfinder.ws.jboss.org/'>bindingNS:BookFinderBinding</wsdl-binding>
+  <service-endpoint-method-mapping>
+   <java-method-name>search</java-method-name>
+   <wsdl-operation>search</wsdl-operation>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>org.jboss.ws.booksearch.SearchCriteria</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://bookfinder.ws.jboss.org/'>wsdlMsgNS:BookFinder_search</wsdl-message>
+     <wsdl-message-part-name>SearchCriteria_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>org.jboss.ws.booksearch.SearchResult</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://bookfinder.ws.jboss.org/'>wsdlMsgNS:BookFinder_searchResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+ </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

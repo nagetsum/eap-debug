@@ -4,14 +4,21 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
            http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
-
     <servlet>
         <servlet-name>HelloWorldWS</servlet-name>
         <servlet-class>org.jboss.ws.hello.HelloPojo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BookFinderWS</servlet-name>
+        <servlet-class>org.jboss.ws.booksearch.BookFinderImpl</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>HelloWorldWS</servlet-name>
         <url-pattern>/Hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookFinderWS</servlet-name>
+        <url-pattern>/bookFinder</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -12,4 +12,18 @@
    </service-impl-bean>
   </port-component>
  </webservice-description>
+ <webservice-description>
+  <webservice-description-name>BookFinder</webservice-description-name>
+  <wsdl-file>WEB-INF/wsdl/BookFinder.wsdl</wsdl-file>
+  <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping-bookfinder.xml</jaxrpc-mapping-file>
+  <port-component>
+   <port-component-name>BookFinderPort</port-component-name>
+   <wsdl-port xmlns:portNS='http://bookfinder.ws.jboss.org/'>portNS:BookFinderPort</wsdl-port>
+   <service-endpoint-interface>org.jboss.ws.booksearch.BookFinder</service-endpoint-interface>
+   <service-impl-bean>
+    <servlet-link>BookFinderWS</servlet-link>
+   </service-impl-bean>
+  </port-component>
+ </webservice-description>
+
 </webservices>
