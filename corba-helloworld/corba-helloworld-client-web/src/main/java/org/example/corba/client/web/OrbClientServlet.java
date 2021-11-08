@@ -7,6 +7,7 @@ import org.omg.CORBA.UserException;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 
+import javax.annotation.Resource;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,10 @@ import java.io.IOException;
 
 @WebServlet("/client")
 public class OrbClientServlet extends HttpServlet {
+
+    @Resource(lookup = "java:comp/ORB")
+    ORB orb;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res)
         throws IOException {
@@ -26,11 +31,10 @@ public class OrbClientServlet extends HttpServlet {
 
     private String callOrb() {
         try{
-            ORB orb = (ORB) new InitialContext().lookup("java:comp/ORB");
             NamingContextExt ncRef = NamingContextExtHelper.narrow(orb.string_to_object("corbaloc:iiop:127.0.0.1:1050/NameService"));
             Hello helloImpl = HelloHelper.narrow(ncRef.resolve_str("Hello"));
             return helloImpl.sayHello();
-        } catch (NamingException | UserException e) {
+        } catch (UserException e) {
             throw new RuntimeException(e);
         }
     }
