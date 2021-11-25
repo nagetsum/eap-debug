@@ -24,6 +24,7 @@ public class FileJioResource {
 
     @GET
     public Response readJaFile() {
+        System.out.println("defaultCharset: " + Charset.defaultCharset());
         try (BufferedReader reader = new BufferedReader(new FileReader("/opt/eap/日本語ファイル.txt"))) {
             String str;
             while ((str = reader.readLine()) != null) {
