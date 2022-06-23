@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="books" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5bc0976f-5af8-44b7-964e-65bf834675a8">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="books.jrdax"/>
+    <queryString language="json">
+        <![CDATA[books]]>
+    </queryString>
+    <field name="code" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="code"/>
+        <fieldDescription><![CDATA[code]]></fieldDescription>
+    </field>
+    <field name="date" class="java.sql.Date">
+        <property name="net.sf.jasperreports.json.field.expression" value="date"/>
+        <fieldDescription><![CDATA[date]]></fieldDescription>
+    </field>
+    <field name="author" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="author"/>
+        <fieldDescription><![CDATA[author]]></fieldDescription>
+    </field>
+    <field name="title" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="title"/>
+        <fieldDescription><![CDATA[title]]></fieldDescription>
+    </field>
+    <title>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="80" y="0" width="400" height="20" uuid="28024f25-c9a2-46db-a401-6a7d5981d9e5"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="18"/>
+                </textElement>
+                <text><![CDATA[図書リスト]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="20" y="0" width="100" height="20" uuid="5cc4fd59-de98-4b49-b38b-09fe8bc7b25b"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="14"/>
+                </textElement>
+                <text><![CDATA[コード]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="120" y="0" width="100" height="20" uuid="c4d4a11b-c752-4374-a57c-7c2e9508b600"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="14"/>
+                </textElement>
+                <text><![CDATA[発行日]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="220" y="0" width="100" height="20" uuid="4814ce8c-649c-4c73-babb-1617a2e09272"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="14"/>
+                </textElement>
+                <text><![CDATA[著者]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="320" y="0" width="220" height="20" uuid="e7c0bda4-3a65-4593-8e20-be0e23abfaba"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="14"/>
+                </textElement>
+                <text><![CDATA[書籍名]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="20" y="0" width="100" height="20" uuid="47b08855-e86c-43e1-8331-c553ad216a2f"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="11"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="120" y="0" width="100" height="20" uuid="8a2396ba-a280-4921-811f-766164fd3a9a"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="11"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="220" y="0" width="100" height="20" uuid="b6efe332-4fbb-40c5-8a44-ab565b9f8c3b"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="11"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{author}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="320" y="0" width="220" height="20" uuid="b710ac2e-1326-45c4-8f91-056bd0245edf"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="IPAex" size="11"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
