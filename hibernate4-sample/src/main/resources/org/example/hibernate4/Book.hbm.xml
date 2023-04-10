@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.example.hibernate4.entity.Book">
+        <id name="id"/>
+        <property name="title"/>
+        <property name="author"/>
+    </class>
+</hibernate-mapping>
