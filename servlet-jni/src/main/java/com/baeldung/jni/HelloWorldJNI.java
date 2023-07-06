@@ -10,6 +10,6 @@ public class HelloWorldJNI {
         HelloWorldJNI.sayHello();
     }
 
-    // Declare a native method sayHello() that receives no arguments and returns void
-    public static native void sayHello();
+    // Declare a native method sayHello() that receives no arguments and returns int
+    public static native int sayHello();
 }
