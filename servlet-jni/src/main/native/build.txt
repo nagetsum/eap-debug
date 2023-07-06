@@ -1,0 +1,41 @@
+mkdir jni
+
+cd jni
+mkdir -p com/baeldung/jni/
+mkdir native
+
+vim com/baeldung/jni/HelloWorldJNI.java
+~~~
+package com.baeldung.jni;
+
+public class HelloWorldJNI {
+
+    static {
+        System.loadLibrary("CHelloWorld");
+    }
+
+    public static void main(String[] args) {
+        HelloWorldJNI.sayHello();
+    }
+
+    // Declare a native method sayHello() that receives no arguments and returns void
+    public static native void sayHello();
+}
+~~~
+
+javac -h com/baeldung/jni/ com/baeldung/jni/HelloWorldJNI.java
+vim com/baeldung/jni/HelloWorld.c
+~~~
+#include "com_baeldung_jni_HelloWorldJNI.h"
+#include "jni.h"
+#include  "stdio.h"
+
+JNIEXPORT void JNICALL Java_com_baeldung_jni_HelloWorldJNI_sayHello(JNIEnv* env, jclass clazz) {
+  printf("Hello world\n");
+  return;
+}
+~~~
+
+$ gcc -shared -o native/libCHelloWorld.so -fPIC -I $JAVA_HOME/include -I $JAVA_HOME/include/linux com/baeldung/jni/HelloWorld.c
+$ java -cp . -Djava.library.path=/home/nagetsum/sandbox/jni/native/ com.baeldung.jni.HelloWorldJNI
+Hello world
