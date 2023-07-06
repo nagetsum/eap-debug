@@ -15,7 +15,8 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws IOException, ServletException {
 
-        HelloWorldJNI.sayHello();
+        int ret = HelloWorldJNI.sayHello();
+        System.out.println("ret = " + ret);
 
         resp.setContentType("text/plain; charset=utf-8");
         resp.getWriter().println("see console");
