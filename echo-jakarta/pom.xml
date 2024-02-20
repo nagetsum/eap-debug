@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <version.server>8.0.0.GA-redhat-00009</version.server>
         <version.bom.ee>${version.server}</version.bom.ee>
-        <version.plugin.war>3.4.1</version.plugin.war>
+        <version.plugin.war>3.4.1-SNAPSHOT</version.plugin.war>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
