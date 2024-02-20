@@ -13,6 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <version.server>8.0.0.GA-redhat-00009</version.server>
         <version.bom.ee>${version.server}</version.bom.ee>
+        <version.plugin.war>3.4.1</version.plugin.war>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
@@ -46,5 +47,14 @@
 
     <build>
         <finalName>echo</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>                                  2
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${version.plugin.war}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
