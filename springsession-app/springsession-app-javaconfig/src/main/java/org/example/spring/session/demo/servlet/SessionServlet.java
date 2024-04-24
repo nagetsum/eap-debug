@@ -14,6 +14,8 @@ public class SessionServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
+
+        // TODO: fix required. This code is NOT thread safe. HttpSessionMutexListener is not called with Spring Session. 
         Object mutex = WebUtils.getSessionMutex(session);
         synchronized (mutex) {
             requestHandle(req, resp, session);
