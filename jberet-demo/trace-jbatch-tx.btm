@@ -1,0 +1,36 @@
+RULE trace setTransactionTimeout
+CLASS org.wildfly.transaction.client.ContextTransactionManager
+METHOD setTransactionTimeout(int)
+AT ENTRY
+IF TRUE
+DO
+    traceln("### BYTEMAN: TransactionManager.setTransactionTimeout timeout=" + $1);
+ENDRULE
+
+RULE trace begin
+CLASS org.wildfly.transaction.client.ContextTransactionManager
+METHOD begin()
+AT ENTRY
+IF TRUE
+DO
+    traceln("### BYTEMAN: TransactionManager.begin()");
+ENDRULE
+
+RULE trace commit
+CLASS org.wildfly.transaction.client.ContextTransactionManager
+METHOD commit()
+AT ENTRY
+IF TRUE
+DO
+    traceln("### BYTEMAN: TransactionManager.commit()");
+ENDRULE
+
+RULE trace rollback
+CLASS org.wildfly.transaction.client.ContextTransactionManager
+METHOD rollback()
+AT ENTRY
+IF TRUE
+DO
+    traceln("### BYTEMAN: TransactionManager.rollback()");
+ENDRULE
+

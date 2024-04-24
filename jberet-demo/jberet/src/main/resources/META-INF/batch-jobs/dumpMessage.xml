@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="dumpMessage" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/jobXML_1_0.xsd"
+     version="1.0" restartable="true">
+    <properties>
+        <property name="javax.transaction.global.timeout" value="10"/>
+    </properties>
+    <step id="dumpMessage.step1">
+        <!--
+        <properties>
+            <property name="javax.transaction.global.timeout" value="180"/>
+        </properties>
+        -->
+        <chunk>
+            <reader ref="dummyReader"/>
+            <processor ref="dummyProcessor"/>
+            <writer ref="dummyWriter"/>
+        </chunk>
+        <!--
+        <next on="COMPLETED" to="dumpMessage.step2" />
+        <next on="FAILED" to="dumpMessage.step2" />
+        -->
+    </step>
+    <!--
+    <step id="dumpMessage.step2">
+        <chunk>
+            <reader ref="dummyReader"/>
+            <processor ref="dummyProcessor"/>
+            <writer ref="dummyWriter"/>
+        </chunk>
+        <end on="COMPLETED" exit-status="COMPLETED"/>
+        <fail on="FAILED" exit-status="FAILED" />
+    </step>
+    -->
+</job>
