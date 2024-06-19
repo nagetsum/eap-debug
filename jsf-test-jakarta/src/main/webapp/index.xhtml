@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:h="jakarta.faces.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>countup jsf scope test application</title>
+</head>
+<h:body>
+    <h1>jsf scope test application</h1>
+
+    <h:form>
+        <h:commandButton action="#{backingBean.increment()}" value="increment" />
+        <h:commandButton action="#{backingBean.logout()}" value="logout" />
+    </h:form>
+
+    <p>Session Scope counter : <h:outputText value="#{sessionBean.now()}"/> </p>
+    <p>View Scope counter : <h:outputText value="#{viewScopedBean.now()}"/> </p>
+</h:body>
+</html>
