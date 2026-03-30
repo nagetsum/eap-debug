@@ -12,6 +12,6 @@ public class EchoServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res)
             throws IOException {
         res.setContentType("text/plain; charset=utf-8");
-        res.getWriter().write("echo");
+        res.getWriter().write("echo, from " + System.getProperty("jboss.node.name", "unknown node"));
     }
 }
