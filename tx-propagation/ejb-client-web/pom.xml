@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.jboss</groupId>
             <artifactId>jboss-ejb-client</artifactId>
-            <version>4.0.12.Final-redhat-00001</version>
+            <version>4.0.39.SP1-redhat-00001</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
